@@ -1,0 +1,12 @@
+## Parameters file ##
+ApiGateway_cpu: 0.5
+ApiGateway_ingressport: 8080
+ProfileApi_cpu: 0.5
+ProfileApi_ingressport: 8081
+ProfileWorker_cpu: 0.5
+NotificationApi_cpu: 0.5
+NotificationApi_ingressport: 8082
+NotificationWorker_cpu: 0.5
+FriendsApi_cpu: 0.5
+FriendsApi_ingressport: 8083
+FriendsWorker_cpu: 0.5

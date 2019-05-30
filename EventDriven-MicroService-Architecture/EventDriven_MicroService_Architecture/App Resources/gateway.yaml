@@ -1,0 +1,34 @@
+gateway:
+  schemaVersion: 1.0.0-preview2
+  name: EventDrivenMicroServiceArchitectureGateway
+  properties:
+    description: EventDrivenMicroServiceArchitecture Gateway Resource
+    sourceNetwork:
+      name: Open
+    destinationNetwork:
+      name: EventDrivenMicroServiceArchitectureNetwork
+    tcp:
+      - name: FriendsApiTCP
+        port: "[parameters('FriendsApi_ingressport')]"
+        destination:
+          applicationName: EventDrivenMicroServiceArchitecture
+          serviceName: FriendsApi
+          endpointName: FriendsApiListener
+      - name: NotificationApiTCP
+        port: "[parameters('NotificationApi_ingressport')]"
+        destination:
+          applicationName: EventDrivenMicroServiceArchitecture
+          serviceName: NotificationApi
+          endpointName: NotificationApiListener
+      - name: ProfileApiTCP
+        port: "[parameters('ProfileApi_ingressport')]"
+        destination:
+          applicationName: EventDrivenMicroServiceArchitecture
+          serviceName: ProfileApi
+          endpointName: ProfileApiListener
+      - name: ApiGatewayTCP
+        port: "[parameters('ApiGateway_ingressport')]"
+        destination:
+          applicationName: EventDrivenMicroServiceArchitecture
+          serviceName: ApiGateway
+          endpointName: ApiGatewayListener

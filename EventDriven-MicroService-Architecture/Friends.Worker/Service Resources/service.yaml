@@ -1,0 +1,20 @@
+﻿## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: EventDrivenMicroServiceArchitecture
+  properties:
+    services:
+      - name: FriendsWorker
+        properties:
+          description: FriendsWorker description.
+          osType: Windows
+          codePackages:
+            - name: FriendsWorker
+              image: friendsworker:dev
+              resources:
+                requests:
+                  cpu: "[parameters('FriendsWorker_cpu')]"
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: EventDrivenMicroServiceArchitectureNetwork

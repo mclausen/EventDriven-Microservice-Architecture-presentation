@@ -1,0 +1,28 @@
+﻿## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: EventDrivenMicroServiceArchitecture
+  properties:
+    services:
+      - name: ApiGateway
+        properties:
+          description: ApiGateway description.
+          osType: Windows
+          codePackages:
+            - name: ApiGateway
+              image: apigateway:dev
+              endpoints:
+                - name: ApiGatewayListener
+                  port: 80
+#              environmentVariables:
+#                - name: ApplicationInsights:InstrumentationKey
+#                  value: "<Place AppInsights key here, or reference it via a secret>"
+              resources:
+                requests:
+                  cpu: "[parameters('ApiGateway_cpu')]"
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: EventDrivenMicroServiceArchitectureNetwork
+              endpointRefs:
+                - name: ApiGatewayListener

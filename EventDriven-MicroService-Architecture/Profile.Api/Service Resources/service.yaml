@@ -1,0 +1,28 @@
+﻿## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: EventDrivenMicroServiceArchitecture
+  properties:
+    services:
+      - name: ProfileApi
+        properties:
+          description: ProfileApi description.
+          osType: Windows
+          codePackages:
+            - name: ProfileApi
+              image: profileapi:dev
+              endpoints:
+                - name: ProfileApiListener
+                  port: 80
+#              environmentVariables:
+#                - name: ApplicationInsights:InstrumentationKey
+#                  value: "<Place AppInsights key here, or reference it via a secret>"
+              resources:
+                requests:
+                  cpu: "[parameters('ProfileApi_cpu')]"
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: EventDrivenMicroServiceArchitectureNetwork
+              endpointRefs:
+                - name: ProfileApiListener

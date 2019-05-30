@@ -1,0 +1,12 @@
+## Parameters file ##
+ApiGateway_cpu: 1
+ApiGateway_ingressport: 80
+ProfileApi_cpu: 1
+ProfileApi_ingressport: 81
+ProfileWorker_cpu: 1
+NotificationApi_cpu: 1
+NotificationApi_ingressport: 82
+NotificationWorker_cpu: 1
+FriendsApi_cpu: 1
+FriendsApi_ingressport: 83
+FriendsWorker_cpu: 1

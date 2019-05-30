@@ -1,0 +1,20 @@
+﻿## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: EventDrivenMicroServiceArchitecture
+  properties:
+    services:
+      - name: ProfileWorker
+        properties:
+          description: ProfileWorker description.
+          osType: Windows
+          codePackages:
+            - name: ProfileWorker
+              image: profileworker:dev
+              resources:
+                requests:
+                  cpu: "[parameters('ProfileWorker_cpu')]"
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: EventDrivenMicroServiceArchitectureNetwork
